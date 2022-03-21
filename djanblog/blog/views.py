@@ -20,4 +20,15 @@ def post_detail(request, year, month, day, post):
                   {'post': post})
 
 def post_list(request):
-    pass
+    object_list = Post.published.all()
+    paginator = Paginator(object_list, 3)  # тут 3 - количество постов на страницу
+    page = request.GET.get('page')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)  # если page не целое число, ставим первую страницу
+    except EmptyPage:
+        # если page больше максимума, ставим последнюю
+        posts = paginator.page(paginator.num_pages)
+    return render(request, 'blog/post/list.html',
+                  {'page': page, 'posts': posts})
