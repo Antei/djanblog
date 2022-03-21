@@ -28,17 +28,17 @@ h1 {
   
 #content,  
 #sidebar {  
-    display: inline-block;  
+    /*display: inline-block;*/  
     float: left; 
     padding: 20px;  
     height: 100%;  
 }  
   
 #content {  
-    width: 70%;  
+    width: 80%;  
 }  
   
 #sidebar {  
-    width: 30%;  
+    width: 20%;  
   background-color: lightgrey;  
 }

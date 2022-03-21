@@ -1,9 +1,9 @@
 {% extends "blog/base.html" %}  
   
-{% block title %}My Blog{% endblock %}  
+{% block title %}Мой Djanblog{% endblock %}  
   
 {% block content %}  
-  <h1>Djanblog</h1>  
+  <h1>Мой Djanblog</h1>  
   {% for post in posts %}  
     <h2>  
       <a href="{{ post.get_absolute_url }}">  
@@ -11,7 +11,7 @@
       </a>  
     </h2> 
     <p class="date">  
-      Published {{ post.publish }} by {{ post.author }}  
+      Опубликовано {{ post.publish }} by {{ post.author }}  
     </p>  
     {{ post.body|truncatewords:30|linebreaks }}  
   {% endfor %}

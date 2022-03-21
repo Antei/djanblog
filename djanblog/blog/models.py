@@ -9,8 +9,8 @@ class PublishedManager(models.Manager):
                                             .filter(status='published')
 
 class Post(models.Model):
-    STATUS_CHOICES = (('draft', 'Draft'), 
-                      ('published', 'Published'),
+    STATUS_CHOICES = (('draft', 'Черновик'), 
+                      ('published', 'Опубликовано'),
                       )
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, 
