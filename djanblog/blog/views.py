@@ -21,7 +21,7 @@ def post_detail(request, year, month, day, post):
 
 def post_list(request):
     object_list = Post.published.all()
-    paginator = Paginator(object_list, 3)  # тут 3 - количество постов на страницу
+    paginator = Paginator(object_list, 4)  # тут 4 - количество постов на страницу
     page = request.GET.get('page')
     try:
         posts = paginator.page(page)
@@ -32,3 +32,11 @@ def post_list(request):
         posts = paginator.page(paginator.num_pages)
     return render(request, 'blog/post/list.html',
                   {'page': page, 'posts': posts})
+
+from django.views.generic import ListView
+
+class PostListView(ListView):  
+    queryset = Post.published.all()  
+    context_object_name = 'posts'  
+    paginate_by = 3  
+    template_name = 'blog/post/list.html'
