@@ -40,8 +40,10 @@ def post_detail(request, year, month, day, post):
         comment_form = CommentForm()
     return render(request,
                   'blog/post/detail.html',
-                  {'post': post, 'comments': comments, 
-                  'new_comment': new_comment, 'comment_form': comment_form})
+                  {'post': post, 
+                  'comments': comments, 
+                  'new_comment': new_comment, 
+                  'comment_form': comment_form})
 
 def post_share(request, post_id):
     # получение поста по id
